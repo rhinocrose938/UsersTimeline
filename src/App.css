@@ -29,3 +29,6 @@
   display: none;
 }
 
+.btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: palevioletred !important;
+}
