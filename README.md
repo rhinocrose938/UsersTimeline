@@ -1,68 +1,7 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This App named UsersTimeline is created using static server connecting to the Database file given in Assignment. The code for creating the static server is in server.js file.
+The App component contains the Navbar and Users Component.
+The Navbar is created using BootStrap Library.
+For applying CSS to all components BootStrap Library is used using CDN in index.html and an App.css file is also been used.
+The App component is rendered in index.js using React-Dom in the root component of index.html.
+In the componentDidMount lifecycle method in the Users Component we fetch the data using the API '/listUsers' and store the data as users in the state of the component using setState. Now the users object has a property members whose value is an array so we map through it and display button for the modal containing Name of User, Location of user and id of user in the form of card. Now once all usernames with details are displayed with modal buttons we want to get which button is clicked with username. So when a modal button is clicked then the user element is passed to showModal function where boolean value of show is set to true and the nameOfUser state is set to element.real_name. Once we have the nameOfUser we map through user.members and find that object which has real_name equal to the nameOfUser and store that object as activeUser. Now we use the activeUser object to display the opened Modal with name of user and we map through activeUser.activity_periods to display the start time and end time as buttons. Now when the start time and end time button is clicked the element is passed to setCalendar method which parses the start time and end time and converts it into a date range and stores it in state as date. Now this range of date is passed to Calendar component as value and the props of Calendar selectRange is set to true. So in the modal when any start time and end time buttons are clicked the time range is displayed in the calendar component. The close button of the modal will set the boolean value of show to false and the modal will close.
+Modal component is the child component of Users which gets displayed when Boolean value of show prop is true as the className of showHideClassName css valuebecomes display block from display none. The main body consists of children prop which are passed to it in the parent component Users. The handleClose prop on the button close when button is clicked changes the boolean value of show to false and modal gets closed. The props recieved by this component are handleClose, show and children
