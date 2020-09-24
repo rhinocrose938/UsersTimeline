@@ -1,6 +1,5 @@
 import React from 'react';
 import '../App.css';
-import usersData from './Database';
 import Modal from './Modal';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
@@ -11,7 +10,7 @@ class Users extends React.Component {
 
   constructor(props){
     super();
-    this.state = { users: usersData, show: false, nameOfUser: ''};
+    this.state = { users: {}, show: false, nameOfUser: ''};
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
     this.setCalendar = this.setCalendar.bind(this);
@@ -62,14 +61,15 @@ class Users extends React.Component {
         of show to false and the modal will close */
 
   render() {
-    
-    const activeUser = this.state.users.members.find(elem => elem.real_name === this.state.nameOfUser);
+    const members = this.state.users.members;
+    if(members) {
+    const activeUser = members.find(elem => elem.real_name === this.state.nameOfUser);
     return (
 
       <div className="container-sm pt-3 pb-3 bg-secondary">
         <h4 className="text-center text-white my-3">
           List of Users: click respective button to view Activity Periods</h4>
-          <div>{this.state.users.members.map( (element) =>(
+          <div>{members.map( (element) =>(
                  <div class="card text-center m-3" key={element.id}>
                     <div class="card-body">
                       <h4 class="card-title">User Name: {element.real_name}</h4>
@@ -99,6 +99,9 @@ class Users extends React.Component {
             </div>
                   
            )
+  } else {
+    return null;
+  }
         }
                  
       }
