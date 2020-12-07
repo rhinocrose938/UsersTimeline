@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 export default function Nav() {
-      /* is navbar component created using Bootstrap library, 
+      /* This is the navbar component created using Bootstrap library, 
          where we set the link to different routes in the component. 
          On clicking a particular link the user will get directed to the set route. 
          To setup the link we import Link from 'react-router-dom' as above */ 
