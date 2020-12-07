@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 
 const Modal = ({ handleClose, show, children}) => {
-    /* This is the Modal component child component of Users which gets displayed when a
+    /* is the Modal component child component of Users which gets displayed when a
        Boolean value of show prop is true as the className of showHideClassName css value
        becomes display block from display none. The main body consists of 
        children prop which are passed to it in the parent component Users. 
